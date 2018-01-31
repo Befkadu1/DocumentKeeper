@@ -50,7 +50,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
-                  <Font size="11.0" />
+                  <Font size="15.0" />
                </font>
             </TextArea>
          </children>
@@ -60,9 +60,9 @@
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.0" minWidth="10.0" prefWidth="29.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints maxHeight="196.0" minHeight="0.0" prefHeight="23.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="539.0" minHeight="10.0" prefHeight="539.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="23.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="196.0" minHeight="0.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="550.0" minHeight="10.0" prefHeight="540.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
    </left>
