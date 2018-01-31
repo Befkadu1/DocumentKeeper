@@ -12,7 +12,7 @@
    <bottom>
       <AnchorPane prefHeight="47.0" prefWidth="1013.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <BorderPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            <Insets />
          </BorderPane.margin></AnchorPane>
    </bottom>
    <center>
@@ -35,7 +35,7 @@
       </TabPane>
    </center>
    <left>
-      <GridPane prefHeight="604.0" prefWidth="195.0" BorderPane.alignment="CENTER">
+      <GridPane prefHeight="604.0" prefWidth="195.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
             <TreeView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
@@ -67,12 +67,12 @@
       </GridPane>
    </left>
    <right>
-      <AnchorPane prefHeight="604.0" prefWidth="15.0" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="604.0" prefWidth="15.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER" />
    </right>
    <top>
       <AnchorPane prefHeight="99.0" prefWidth="1003.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <BorderPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            <Insets />
          </BorderPane.margin></AnchorPane>
    </top>
 </BorderPane>
