@@ -8,6 +8,7 @@ package repository;
 import documentkeeper.model.Category;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -24,8 +25,12 @@ public class DBConnection {
     String url = "jdbc:derby://localhost:1527/documentkeeper;create=true;user=root;password=root";
     String selectQuery = "Select * from users";
     String insertQuery = "INSERT INTO users (username) VALUES ('TestUser') ";
+
     String getAllCategoriesQuery = "Sselect * from category";
     
+
+    String createFolderQuery = "INSERT INTO folders (name,description) VALUES (?, ?)";
+
     public DBConnection() {
         try {
             Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
@@ -54,6 +59,18 @@ public class DBConnection {
         }
    
           return category;
+    }
+    
+    public void createFolder(String name, String description){
+        try {
+            PreparedStatement pst = connection.prepareStatement(createFolderQuery);
+            pst.setString(1, name);
+            pst.setString(2, description);
+            pst.executeUpdate();
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getStackTrace());
+        }
     }
     
 }
