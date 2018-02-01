@@ -3,6 +3,7 @@ package documentkeeper;
 import documentkeeper.model.File;
 import documentkeeper.model.Folder;
 import java.util.ArrayList;
+import repository.DBConnection;
 
 /**
  * @author wuzoink
@@ -12,6 +13,7 @@ public class Logic {
     
     private static Logic instance = null;
     private ArrayList<Folder> folderList = new ArrayList<>();
+    private DBConnection dbConnection = new DBConnection();
     
     
        private Logic() {
