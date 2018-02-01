@@ -1,7 +1,9 @@
 package documentkeeper;
 
+import documentkeeper.model.File;
 import documentkeeper.model.Folder;
 import java.util.ArrayList;
+import repository.DBConnection;
 
 /**
  * @author wuzoink
@@ -11,6 +13,7 @@ public class Logic {
     
     private static Logic instance = null;
     private ArrayList<Folder> folderList = new ArrayList<>();
+    private DBConnection dbConnection = new DBConnection();
     
     
        private Logic() {
@@ -32,12 +35,25 @@ public class Logic {
         Folder selectedFolder = new Folder();
         
         for(Folder f : folderList){
-            int id = f.getId();
-            if(id == folderId){
+            if(f.getId() == folderId){
                 selectedFolder = f;
             }  
         }
         return selectedFolder;
+    }
+    
+    public File getFileById(int fileId){
+        File selectedFile = new File();
+        
+        for(Folder folder : folderList){
+            ArrayList<File> fileList = folder.getFileList();
+            for(File file : fileList){
+                if(file.getId() == fileId){
+                    selectedFile = file;
+                }
+            }
+        }
+        return selectedFile;  
     }
     
 }
