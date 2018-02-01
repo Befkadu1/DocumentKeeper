@@ -5,6 +5,7 @@ import documentkeeper.model.File;
 import documentkeeper.model.Folder;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -21,21 +22,21 @@ public class DBConnection {
     String url = "jdbc:derby://localhost:1527/documentkeeper;create=true;user=root;password=root";
     String selectQuery = "Select * from users";
     String insertQuery = "INSERT INTO users (username) VALUES ('TestUser') ";
-    
+    String getAllCategoriesQuery = "select * from category";
+    String createFolderQuery = "INSERT INTO folders (name,description) VALUES (?, ?)";
+
     public DBConnection() {
-        
-        System.out.println("test");
         try {
             Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
             connection = (Connection) DriverManager.getConnection(url);
             st = (Statement) connection.createStatement();
         } catch (SQLException ex) {
-            System.out.println("Fel med koppling till databas " + ex.getMessage());
+            System.out.println("Error connecting to database " + ex.getMessage());
         } catch (Exception except){
             except.printStackTrace();
         }
     }
-    
+   
     private ArrayList<Folder> getFoldersFromDb(){
         selectQuery = "Select * from folders";
         ArrayList<Folder> folderList = new ArrayList<>();
@@ -97,35 +98,34 @@ public class DBConnection {
         return categoryList;
     }
     
-    // This is just a proof of concept
-    // I added a table with name as only column
-    // and a couple of entries to test
-    public ArrayList<String> getUsersFirstname() {
+     public ArrayList<Category> getAllCategories(){
         
-        ArrayList<String> users = new ArrayList();
+           ArrayList<Category> category = new ArrayList();
         
-        try {
-            
-            st.executeUpdate(insertQuery);
-            
-
-        } catch (SQLException ex) {
-            System.out.println("Fel i sql-satsen " + ex.getMessage());
-        }
-        
-        
-        try {
-            
-            ResultSet result = st.executeQuery(selectQuery);
-            while (result.next()) {
-                String name = result.getString(1);
-                
-                users.add(name);
+          try {
+            ResultSet result = st.executeQuery(getAllCategoriesQuery);
+                while (result.next()) {
+                    int id = Integer.parseInt(result.getString(1));
+                    String name = result.getString(2);
+                    category.add(new Category(1,name));
+                }
+            }catch(Exception e){
+                    System.out.println("SQL Exception: " + e);
             }
+   
+          return category;
+    }
+    
+    public void createFolder(String name, String description){
+        try {
+            PreparedStatement pst = connection.prepareStatement(createFolderQuery);
+            pst.setString(1, name);
+            pst.setString(2, description);
+            pst.executeUpdate();
+            
         } catch (SQLException ex) {
-            System.out.println("Fel i sql-satsen " + ex.getMessage());
+            System.out.println(ex.getStackTrace());
         }
-        return users;
     }
     
 }

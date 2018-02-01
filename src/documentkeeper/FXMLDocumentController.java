@@ -1,5 +1,6 @@
 package documentkeeper;
 
+import documentkeeper.model.Category;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -14,10 +15,8 @@ import repository.DBConnection;
  */
 public class FXMLDocumentController implements Initializable {
     
-    @FXML
     private Label label;
     
-    @FXML
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
         label.setText("Hello World!");
@@ -25,9 +24,9 @@ public class FXMLDocumentController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        DBConnection c = new DBConnection();
-        System.out.println("klajskdlasd");
-        System.out.println(c.getUsersFirstname());
+
+
+        
     }    
     
 }

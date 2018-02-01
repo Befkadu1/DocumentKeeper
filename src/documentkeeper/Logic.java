@@ -1,5 +1,6 @@
 package documentkeeper;
 
+import documentkeeper.model.Category;
 import documentkeeper.model.File;
 import documentkeeper.model.Folder;
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ public class Logic {
     
     private static Logic instance = null;
     private ArrayList<Folder> folderList = new ArrayList<>();
-    private DBConnection dbConnection = new DBConnection();
+    private DBConnection db = new DBConnection();
     
     
        private Logic() {
@@ -28,7 +29,7 @@ public class Logic {
     }
     
     public void fillLists(){
-        dbConnection.getDataFromDB();
+        db.getDataFromDB();
     }
     
     public ArrayList<Folder> getFolderList(){
@@ -58,6 +59,12 @@ public class Logic {
             }
         }
         return selectedFile;  
+    }
+    public ArrayList<Category> getCategories(){
+    return db.getAllCategories();
+    }
+    public void createFolder(String name,String description){
+        db.createFolder(name, description);
     }
     
 }
