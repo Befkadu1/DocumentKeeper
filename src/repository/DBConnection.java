@@ -21,9 +21,11 @@ public class DBConnection {
     Connection connection;
     Statement st;
     String url = "jdbc:derby://localhost:1527/documentkeeper;create=true;user=root;password=root";
-    String query1 = "SELECT * FROM users";
-    
+    String selectQuery = "Select * from users";
+    String insertQuery = "INSERT INTO users (username) VALUES ('TestUser') ";
     public DBConnection() {
+        
+        System.out.println("test");
         try {
             Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
             connection = (Connection) DriverManager.getConnection(url);
@@ -39,11 +41,24 @@ public class DBConnection {
     // I added a table with name as only column
     // and a couple of entries to test
     public ArrayList<String> getUsersFirstname() {
+        
         ArrayList<String> users = new ArrayList();
+        
         try {
-            ResultSet result = st.executeQuery(query1);
+            
+            st.executeUpdate(insertQuery);
+
+        } catch (SQLException ex) {
+            System.out.println("Fel i sql-satsen " + ex.getMessage());
+        }
+        
+        
+        try {
+            
+            ResultSet result = st.executeQuery(selectQuery);
             while (result.next()) {
                 String name = result.getString(1);
+                
                 users.add(name);
             }
         } catch (SQLException ex) {
