@@ -35,8 +35,7 @@ public class Logic {
         Folder selectedFolder = new Folder();
         
         for(Folder f : folderList){
-            int id = f.getId();
-            if(id == folderId){
+            if(f.getId() == folderId){
                 selectedFolder = f;
             }  
         }
