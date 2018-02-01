@@ -1,5 +1,6 @@
 package documentkeeper;
 
+import documentkeeper.model.Category;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -27,7 +28,8 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         DBConnection c = new DBConnection();
         System.out.println("klajskdlasd");
-        System.out.println(c.getUsersFirstname());
+        System.out.println(c.getAllCategories());
+        
     }    
     
 }
