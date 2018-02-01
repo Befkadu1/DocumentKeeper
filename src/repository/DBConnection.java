@@ -57,7 +57,6 @@ public class DBConnection {
     
     public ArrayList<Folder> getDataFromDB(){
         ArrayList<Folder> folderList = getFoldersFromDb();
-        
         for(Folder f : folderList){
             f.setFileList(getFilesByFolderId(f.getId()));
             f.setCategoryList(getCategoryByFolderId(f.getId()));
