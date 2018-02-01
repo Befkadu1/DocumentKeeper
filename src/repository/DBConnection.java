@@ -83,7 +83,7 @@ public class DBConnection {
     
     private ArrayList<Category> getCategoryByFolderId(int folderId){
         ArrayList<Category> categoryList = new ArrayList<>();
-        selectQuery = "SELECT * FROM Category INNER JOIN Category_has_folders ON Category.idCategory = Category_has_folders.idFolder WHERE Category_has_folders.idFolder = " + folderId;
+        selectQuery = "SELECT * FROM Category INNER JOIN Category_has_folders ON Category.idCategory = Category_has_folders.idCategory WHERE Category_has_folders.idFolder = " + folderId;
         try{
             ResultSet result = st.executeQuery(selectQuery);
              while (result.next()) {
