@@ -56,4 +56,8 @@ public class Logic {
         return selectedFile;  
     }
     
+    public void createFolder(String name,String description){
+        dbConnection.createFolder(name, description);
+    }
+    
 }
