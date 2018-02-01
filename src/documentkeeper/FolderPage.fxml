@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="documentkeeper.FolderPageController">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <GridPane prefHeight="35.0" prefWidth="555.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="532.0" minWidth="10.0" prefWidth="522.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="78.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="NewFileBtn" mnemonicParsing="false" prefHeight="32.0" prefWidth="78.0" text="New File" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+         </top>
+         <bottom>
+            <AnchorPane prefHeight="179.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="BrowseBtn" layoutX="15.0" layoutY="131.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="81.0" text="Browse" />
+                  <Button fx:id="DragNDropBtn" layoutX="15.0" layoutY="41.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="81.0" text="Drag'n'Drop" />
+                  <TableView fx:id="ValidCategoriesTable" layoutX="240.0" layoutY="13.0" prefHeight="114.0" prefWidth="74.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="SaveBtn" layoutX="230.0" layoutY="131.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="168.0" text="Save" />
+                  <Button fx:id="AddBtn" layoutX="338.0" layoutY="57.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="29.0" text="+" />
+                  <Button fx:id="RemoveBtn" layoutX="338.0" layoutY="98.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="29.0" text="-" />
+                  <TableView layoutX="404.0" layoutY="11.0" prefHeight="117.0" prefWidth="74.0">
+                     <columns>
+                        <TableColumn fx:id="SelectedCategoriesTable" prefWidth="75.0" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </bottom>
+         <center>
+            <AnchorPane prefHeight="183.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField fx:id="NameField" layoutX="144.0" layoutY="26.0" promptText="Name" />
+                  <TextField fx:id="DescriptionField" alignment="TOP_LEFT" layoutX="144.0" layoutY="69.0" prefHeight="106.0" prefWidth="149.0" promptText="Description" />
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
