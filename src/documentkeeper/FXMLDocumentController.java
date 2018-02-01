@@ -26,9 +26,8 @@ public class FXMLDocumentController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
-
-        
+        DBConnection test = new DBConnection();
+        System.out.println("testtttt " + test.getAllUsers());
     }    
     
 }
