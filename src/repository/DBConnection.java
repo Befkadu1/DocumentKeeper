@@ -39,7 +39,7 @@ public class DBConnection {
     }
    
     private ArrayList<Folder> getFoldersFromDb(){
-        selectQuery = "Select * from folders";
+        String selectQuery = "Select * from folders";
         ArrayList<Folder> folderList = new ArrayList<>();
         try{
             ResultSet result = st.executeQuery(selectQuery);
@@ -69,7 +69,7 @@ public class DBConnection {
     
     private ArrayList<File> getFilesByFolderId(int folderId){
         ArrayList<File> fileList = new ArrayList<>();
-        selectQuery = "SELECT * FROM files INNER JOIN Folders_has_files ON Files.idFile = Folders_has_files.idFile WHERE Folders_has_files.idFolder = " + folderId;
+        String selectQuery = "SELECT * FROM files INNER JOIN Folders_has_files ON Files.idFile = Folders_has_files.idFile WHERE Folders_has_files.idFolder = " + folderId;
         try{
             ResultSet result = st.executeQuery(selectQuery);
              while (result.next()) {
@@ -85,7 +85,7 @@ public class DBConnection {
     
     private ArrayList<Category> getCategoryByFolderId(int folderId){
         ArrayList<Category> categoryList = new ArrayList<>();
-        selectQuery = "SELECT * FROM Category INNER JOIN Category_has_folders ON Category.idCategory = Category_has_folders.idCategory WHERE Category_has_folders.idFolder = " + folderId;
+        String selectQuery = "SELECT * FROM Category INNER JOIN Category_has_folders ON Category.idCategory = Category_has_folders.idCategory WHERE Category_has_folders.idFolder = " + folderId;
         try{
             ResultSet result = st.executeQuery(selectQuery);
              while (result.next()) {
