@@ -23,10 +23,9 @@ public class FXMLDocumentController implements Initializable {
     
     private void fillTreeView(){
         TreeItem<String> treeRoot = new TreeItem<>("Folders");
-        System.out.println(logic.getFolderList().size());
+        
         for(Folder folder: logic.getFolderList()){
             TreeItem<String> folderNode = new TreeItem<>(folder.getName());
-            System.out.println(folder.getName());
             
             for(File file : folder.getFileList()){
                 TreeItem<String> fileNode = new TreeItem<>(file.getName());
