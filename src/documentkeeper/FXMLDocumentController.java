@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import repository.DBConnection;
 
 /**
  *
@@ -24,7 +25,9 @@ public class FXMLDocumentController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        DBConnection c = new DBConnection();
+        System.out.println("klajskdlasd");
+        System.out.println(c.getUsersFirstname());
     }    
     
 }

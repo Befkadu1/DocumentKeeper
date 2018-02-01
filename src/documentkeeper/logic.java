@@ -1,5 +1,6 @@
 package documentkeeper;
 
+import documentkeeper.model.Folder;
 import java.util.ArrayList;
 
 /**
