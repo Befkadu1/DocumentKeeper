@@ -24,7 +24,7 @@ public class DBConnection {
     String url = "jdbc:derby://localhost:1527/documentkeeper;create=true;user=root;password=root";
     String selectQuery = "Select * from users";
     String insertQuery = "INSERT INTO users (username) VALUES ('TestUser') ";
-    String getAllCategoriesQuery = "Select * from category";
+    String getAllCategoriesQuery = "Sselect * from category";
     
     public DBConnection() {
         try {
@@ -32,7 +32,7 @@ public class DBConnection {
             connection = (Connection) DriverManager.getConnection(url);
             st = (Statement) connection.createStatement();
         } catch (SQLException ex) {
-            System.out.println("Fel med koppling till databas " + ex.getMessage());
+            System.out.println("Error connecting to database " + ex.getMessage());
         } catch (Exception except){
             except.printStackTrace();
         }
@@ -50,37 +50,10 @@ public class DBConnection {
                 category.add(new Category(1,name));
             }
         } catch (SQLException ex) {
-            System.out.println("Fel i sql-satsen " + ex.getMessage());
+            System.out.println("Error in sql-query: getAllCategories() " + ex.getMessage());
         }
    
           return category;
-    }
-    
-    public ArrayList<String> getUsersFirstname() {
-        
-        ArrayList<String> users = new ArrayList();
-        
-        try {
-            
-            st.executeUpdate(insertQuery);
-
-        } catch (SQLException ex) {
-            System.out.println("Fel i sql-satsen " + ex.getMessage());
-        }
-        
-        
-        try {
-            
-            ResultSet result = st.executeQuery(selectQuery);
-            while (result.next()) {
-                String name = result.getString(1);
-                
-                users.add(name);
-            }
-        } catch (SQLException ex) {
-            System.out.println("Fel i sql-satsen " + ex.getMessage());
-        }
-        return users;
     }
     
 }
