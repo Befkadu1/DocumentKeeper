@@ -3,6 +3,7 @@ package repository;
 import documentkeeper.model.Category;
 import documentkeeper.model.File;
 import documentkeeper.model.Folder;
+import documentkeeper.model.User;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -20,7 +21,7 @@ public class DBConnection {
     Connection connection;
     Statement st;
     String url = "jdbc:derby://localhost:1527/documentkeeper;create=true;user=root;password=root";
-    String selectQuery = "Select * from users";
+    String getAllUsers = "Select * from users";
     String insertQuery = "INSERT INTO users (username) VALUES ('TestUser') ";
     String getAllCategoriesQuery = "select * from category";
     String createFolderQuery = "INSERT INTO folders (name,description) VALUES (?, ?)";
@@ -126,6 +127,25 @@ public class DBConnection {
         } catch (SQLException ex) {
             System.out.println(ex.getStackTrace());
         }
+    }
+    
+     public ArrayList<User> getAllUsers(){
+        
+            ArrayList<User> user = new ArrayList();
+        
+          try {
+            ResultSet result = st.executeQuery(getAllUsers);
+            while (result.next()) {
+                int id = Integer.parseInt(result.getString(1));
+                String username = result.getString(2);
+                String password = result.getString(3);
+                user.add(new User(id,username, password));
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error in sql-query: getAllCategories() " + ex.getMessage());
+        }
+   
+          return user;
     }
     
 }
