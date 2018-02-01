@@ -26,7 +26,7 @@ public class DBConnection {
     String selectQuery = "Select * from users";
     String insertQuery = "INSERT INTO users (username) VALUES ('TestUser') ";
 
-    String getAllCategoriesQuery = "Sselect * from category";
+    String getAllCategoriesQuery = "select * from category";
     
 
     String createFolderQuery = "INSERT INTO folders (name,description) VALUES (?, ?)";
