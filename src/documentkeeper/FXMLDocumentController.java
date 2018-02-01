@@ -1,31 +1,49 @@
 package documentkeeper;
 
-import documentkeeper.model.Category;
+import documentkeeper.model.File;
+import documentkeeper.model.Folder;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import repository.DBConnection;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeView;
 
 /**
  *
  * @author Joel
  */
+
 public class FXMLDocumentController implements Initializable {
     
-    private Label label;
+    private Logic logic;
     
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
+    @FXML
+    private TreeView<String> treeNav;
+    
+    private void fillTreeView(){
+        TreeItem<String> treeRoot = new TreeItem<>("Folders");
+        
+        for(Folder folder: logic.getFolderList()){
+            TreeItem<String> folderNode = new TreeItem<>(folder.getName());
+            
+            for(File file : folder.getFileList()){
+                TreeItem<String> fileNode = new TreeItem<>(file.getName());
+                folderNode.getChildren().add(fileNode);
+            }
+ 
+           treeRoot.getChildren().add(folderNode);
+           treeRoot.setExpanded(true);
+        }
+        
+        treeNav.setRoot(treeRoot);
+        
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        DBConnection test = new DBConnection();
-        System.out.println("testtttt " + test.getAllUsers());
+        logic = Logic.getInstance();
+        fillTreeView();
     }    
     
 }

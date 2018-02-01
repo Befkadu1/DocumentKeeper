@@ -29,7 +29,7 @@ public class Logic {
     }
     
     public void fillLists(){
-        db.getDataFromDB();
+        folderList = db.getDataFromDB();
     }
     
     public ArrayList<Folder> getFolderList(){
