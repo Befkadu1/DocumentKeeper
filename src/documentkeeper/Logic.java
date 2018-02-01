@@ -1,5 +1,6 @@
 package documentkeeper;
 
+import documentkeeper.model.File;
 import documentkeeper.model.Folder;
 import java.util.ArrayList;
 
@@ -38,6 +39,20 @@ public class Logic {
             }  
         }
         return selectedFolder;
+    }
+    
+    public File getFileById(int fileId){
+        File selectedFile = new File();
+        
+        for(Folder folder : folderList){
+            ArrayList<File> fileList = folder.getFileList();
+            for(File file : fileList){
+                if(file.getId() == fileId){
+                    selectedFile = file;
+                }
+            }
+        }
+        return selectedFile;  
     }
     
 }
