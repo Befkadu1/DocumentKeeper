@@ -6,18 +6,24 @@ public class Folder {
     private int id;
     private String name;
     private String description;
-    private int category_id;
+    private ArrayList<Category> categoryList;
     private ArrayList<File> fileList;
 
     public Folder() {
     }
 
-    public Folder(int id, String name, String description, int category_id, ArrayList<File> fileList) {
+    public Folder(int id, String name, String description, ArrayList<Category> categoryList, ArrayList<File> fileList) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.category_id = category_id;
+        this.categoryList = categoryList;
         this.fileList = fileList;
+    }
+    
+    public Folder(int id, String name, String description){
+        this.id = id;
+        this.name = name;
+        this.description = description;
     }
 
     public int getId() {
@@ -44,12 +50,12 @@ public class Folder {
         this.description = description;
     }
 
-    public int getCategory_id() {
-        return category_id;
+    public ArrayList<Category> getCategoryList() {
+        return categoryList;
     }
 
-    public void setCategory_id(int category_id) {
-        this.category_id = category_id;
+    public void setCategoryList(ArrayList<Category> newList) {
+        this.categoryList = newList;
     }
 
     public ArrayList<File> getFileList() {

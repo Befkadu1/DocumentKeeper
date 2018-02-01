@@ -20,10 +20,13 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<<<<<<< HEAD
 
+=======
+>>>>>>> feature_get_folder_and_files
 
 <BorderPane prefHeight="767.0" prefWidth="1013.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="documentkeeper.FXMLDocumentController">
-
+    
    <bottom>
       <AnchorPane prefHeight="47.0" prefWidth="1013.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <BorderPane.margin>
