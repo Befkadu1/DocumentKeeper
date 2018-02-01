@@ -6,6 +6,8 @@ public class File {
     private String url;
     private String name;
     private String text;
+    
+    public File(){}
 
     public File(int id, int doc_id, String url, String name, String text) {
         this.id = id;

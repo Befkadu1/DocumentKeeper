@@ -93,6 +93,13 @@
       <AnchorPane prefHeight="99.0" prefWidth="1003.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets />
-         </BorderPane.margin></AnchorPane>
+         </BorderPane.margin>
+         <children>
+            <Text fill="WHITE" layoutX="20.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Document Keeper" wrappingWidth="975.0171775817871">
+               <font>
+                  <Font name="Copperplate" size="60.0" />
+               </font>
+            </Text>
+         </children></AnchorPane>
    </top>
 </BorderPane>
