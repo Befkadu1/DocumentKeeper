@@ -2,16 +2,14 @@ package documentkeeper.model;
 
 public class File {
     private int id;
-    private int doc_id;
     private String url;
     private String name;
     private String text;
     
     public File(){}
 
-    public File(int id, int doc_id, String url, String name, String text) {
+    public File(int id, String url, String name, String text) {
         this.id = id;
-        this.doc_id = doc_id;
         this.url = url;
         this.name = name;
         this.text = text;
@@ -23,14 +21,6 @@ public class File {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getDoc_id() {
-        return doc_id;
-    }
-
-    public void setDoc_id(int doc_id) {
-        this.doc_id = doc_id;
     }
 
     public String getUrl() {
