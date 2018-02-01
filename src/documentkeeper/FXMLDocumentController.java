@@ -45,9 +45,6 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         logic = Logic.getInstance();
         fillTreeView();
-
-
-        
     }    
     
 }
