@@ -1,14 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="documentkeeper.FXMLDocumentController">
-    <children>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
-    </children>
-</AnchorPane>
+<BorderPane prefHeight="767.0" prefWidth="1013.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <bottom>
+      <AnchorPane prefHeight="47.0" prefWidth="1013.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin></AnchorPane>
+   </bottom>
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+         <tabs>
+            <Tab text="Folder">
+               <content>
+                  <AnchorPane id="folderTab" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab text="File">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField layoutX="50.0" layoutY="75.0" prefHeight="30.0" prefWidth="200.0" promptText="Name" />
+                        <TextArea layoutX="50.0" layoutY="150.0" prefHeight="300.0" prefWidth="275.0" promptText="Description" />
+                        <Text layoutX="350.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Folders">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Text>
+                        <ListView layoutX="350.0" layoutY="250.0" prefHeight="200.0" prefWidth="350.0" />
+                        <Button layoutX="350.0" layoutY="475.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Save">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="710.0" layoutY="10.0" mnemonicParsing="false" text="Export">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
+      </TabPane>
+   </center>
+   <left>
+      <GridPane prefHeight="604.0" prefWidth="195.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+         <children>
+            <TreeView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin></TreeView>
+            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="195.0" text="New Folder" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin></Button>
+            <TextArea prefHeight="12.0" prefWidth="175.0" promptText="Search" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextArea>
+         </children>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="10.0" prefWidth="22.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="249.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.0" minWidth="10.0" prefWidth="29.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="196.0" minHeight="0.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="550.0" minHeight="10.0" prefHeight="540.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="604.0" prefWidth="15.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER" />
+   </right>
+   <top>
+      <AnchorPane prefHeight="99.0" prefWidth="1003.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin></AnchorPane>
+   </top>
+</BorderPane>
