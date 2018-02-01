@@ -28,6 +28,10 @@ public class Logic {
         return instance;
     }
     
+    public void fillLists(){
+        db.getDataFromDB();
+    }
+    
     public ArrayList<Folder> getFolderList(){
         return folderList;
     }
